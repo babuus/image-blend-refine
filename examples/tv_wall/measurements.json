@@ -1,0 +1,14 @@
+{
+    "overlay": {
+        "length": 75,
+        "height": 25
+    },
+    "base": {
+        "length": 150,
+        "height": 50,
+        "position": {
+            "top_left": [237, 133],
+            "bottom_right": [372, 177]
+        }
+    }
+}

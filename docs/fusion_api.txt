@@ -1,0 +1,149 @@
+Make a POST request to below endpoint and pass the required parameters as a request body to the endpoint.
+curl
+
+Copy
+--request POST 'https://modelslab.com/api/v6/image_editing/fashion' \
+​
+Body
+json
+
+Copy
+{   
+       "key": "your_api_key",   
+       "prompt": ":A realistic photo of a model wearing a beautiful t-shirt",   
+       "negative_prompt": "Low quality, unrealistic, bad cloth, warped cloth",   
+       "init_image": "https://pub-3626123a908346a7a8be8d9295f44e26.r2.dev/livewire-tmp/5dzoZ9qWI2FQxwceFDb3zULRtwCRmF-metaZjA5NjMyX3BhcmVudF8xXzE2NTMwMDMzODguanBn-.jpg",   
+       "cloth_image": "https://pub-3626123a908346a7a8be8d9295f44e26.r2.dev/livewire-tmp/5BDmwvtizESFRO24uGDW1iu1u5TXhB-metaM2JmZmFkY2U5NDNkOGU3MDJhZDE0YTk2OTY2NjQ0NjYuanBn-.jpg",   
+       "cloth_type": "upper_body",   
+       "guidance_scale": 7.5,   
+       "num_inference_steps": 21,   
+       "seed": null,   
+       "temp": "no",   
+       "webhook": null,   
+       "track_id": null 
+}
+Body
+application/json
+​
+key
+stringrequired
+Your API Key used for request authorization
+
+​
+init_image
+string<uri>required
+The URL of the image of the model to try the dress on
+
+​
+cloth_image
+string<uri>required
+The URL of the cloth/dress to try on
+
+​
+cloth_type
+enum<string>required
+Type of garment
+
+Available options: upper_body, lower_body, dresses 
+​
+prompt
+string
+The text prompt describing the things you want in the image
+
+​
+negative_prompt
+string
+Items you do not want in the image
+
+​
+num_inference_steps
+enum<integer>
+The number of denoising steps
+
+Available options: 21, 31, 41 
+​
+temp
+enum<string>default:no
+Set to yes for proxy links
+
+Available options: yes, no 
+​
+guidance_scale
+integer
+The scale for classifier-free guidance
+
+Required range: 1 <= x <= 20
+​
+webhook
+string<uri>
+URL to receive POST API call when complete
+
+​
+track_id
+integer
+ID for webhook identification
+
+Response
+200 - application/json
+Fashion try-on response
+
+Option 1
+Option 2
+Option 3
+​
+status
+enum<string>
+Available options: success 
+​
+generationTime
+number
+Time taken to generate the image in seconds
+
+​
+id
+integer
+Unique identifier for the generation request
+
+​
+output
+string<uri>[]
+Array of generated image URLs
+
+​
+proxy_links
+string<uri>[]
+Array of proxy image URLs
+
+​
+meta
+object
+Metadata about the generation process
+
+
+
+
+
+
+Python:
+import requests
+
+url = "https://modelslab.com/api/v6/image_editing/fashion"
+
+payload = {
+    "key": "<string>",
+    "init_image": "<string>",
+    "cloth_image": "<string>",
+    "cloth_type": "upper_body",
+    "prompt": "<string>",
+    "negative_prompt": "<string>",
+    "num_inference_steps": 21,
+    "temp": "no",
+    "guidance_scale": 10,
+    "webhook": "<string>",
+    "track_id": 123
+}
+headers = {"Content-Type": "application/json"}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
