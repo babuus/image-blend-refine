@@ -7,7 +7,7 @@ from utils.image_processing import get_object_bounding_box
 from logger_config import logger
 from api.stability_ai_api import run_stability_ai_blending_approach
 
-def run_logic_approach():
+def run_logic_only_approach():
     """
     Fits a container into a rack using a scaled, perspective-correct geometric warp
     based on the object's bounding box and alpha channel from the container PNG.
@@ -78,5 +78,11 @@ def run_logic_approach():
     cv2.imwrite(config.LOGIC_OUTPUT_PATH, output_img)
     logger.info(f"Successfully created '{config.LOGIC_OUTPUT_PATH}'")
 
+def run_logic_approach():
+    """
+    Fits a container into a rack using a scaled, perspective-correct geometric warp
+    based on the object's bounding box and alpha channel from the container PNG.
+    """
+    run_logic_only_approach()
     # Run Stability AI blending for refinement
     run_stability_ai_blending_approach()

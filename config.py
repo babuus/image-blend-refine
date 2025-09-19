@@ -1,8 +1,10 @@
 import os
+from logger_config import logger # Import logger for warnings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # --- Configuration ---
-MODELSLAB_API_KEY = "0rmPNrUet38oJgmV5EFOUXbsEY0vcL9LlcAEBsrf26WSjtFQHeZ70kITPBP2"
-MODELSLAB_API_URL = "https://modelslab.com/api/v6/image_editing/inpaint"
 
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -16,13 +18,18 @@ AVAILABLE_EXAMPLES = {
 BASE_IMAGE_PATH = None
 OVERLAY_IMAGE_PATH = None
 MEASUREMENTS_PATH = None
-LOGIC_OUTPUT_PATH = os.path.join(CURRENT_DIR, 'output', 'rack_with_container_logic.png')
+OUTPUT_DIR = os.path.join(CURRENT_DIR, 'output')
+LOGIC_OUTPUT_PATH = None
+STABILITY_OUTPUT_PATH = None
+DEBUG_IMAGE_PATH = None
+COMPARISON_OUTPUT_PATH = None
 
 # Stability AI Configuration
-STABILITY_API_KEY = "sk-rk4W0qSh9nLkqNfqr2Fs7qeuLzoiOFT5ybgdp2PMkbWXCDls"
+STABILITY_API_KEY = os.getenv("STABILITY_API_KEY")
+if not STABILITY_API_KEY:
+    logger.warning("STABILITY_API_KEY environment variable not set. Stability AI functionality may be limited.")
 STABILITY_HOST = "grpc.stability.ai:443" # Default gRPC host for Stability AI
 STABILITY_DENOISING_STRENGTH = 0.2 # Low denoising for blending
 STABILITY_OUTPUT_PATH = os.path.join(CURRENT_DIR, 'output', 'rack_with_container_stability_blended.png')
-MODELSLAB_INPAINT_OUTPUT_PATH = os.path.join(CURRENT_DIR, "output", "rack_with_container_modelslab.png")
 MASK_PATH = os.path.join(CURRENT_DIR, "output", "mask.png")
 DEBUG_IMAGE_PATH = os.path.join(CURRENT_DIR, "output", "debug_quadrilateral.png")

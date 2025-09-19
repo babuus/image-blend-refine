@@ -7,6 +7,7 @@ import io # Added import for io
 
 import config
 from logger_config import logger
+from utils.image_processing import compare_images
 
 def run_stability_ai_blending_approach():
     """
@@ -42,6 +43,7 @@ def run_stability_ai_blending_approach():
                     img_blended = Image.open(io.BytesIO(artifact.binary))
                     img_blended.save(config.STABILITY_OUTPUT_PATH)
                     logger.info(f"Successfully created blended image with Stability AI: '{config.STABILITY_OUTPUT_PATH}'")
+                    compare_images(config.LOGIC_OUTPUT_PATH, config.STABILITY_OUTPUT_PATH, config.COMPARISON_OUTPUT_PATH)
                     return # Exit after first image is processed
         
         logger.error("No image artifact found in Stability AI response.")

@@ -1,14 +1,14 @@
 {
     "overlay": {
-        "length": 75,
-        "height": 25
+        "length": 150,
+        "height": 80
     },
     "base": {
         "length": 150,
-        "height": 50,
+        "height": 80,
         "position": {
-            "top_left": [237, 133],
-            "bottom_right": [372, 177]
+            "top_left": [230, 174],
+            "bottom_right": [375, 260]
         }
     }
 }
