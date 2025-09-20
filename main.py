@@ -46,21 +46,39 @@ def main():
     config.DEBUG_IMAGE_PATH = os.path.join(config.OUTPUT_DIR, f"{selected_example_name}_debug_quadrilateral.png")
     config.MASK_PATH = os.path.join(config.OUTPUT_DIR, f"{selected_example_name}_mask.png")
     config.COMPARISON_OUTPUT_PATH = os.path.join(config.OUTPUT_DIR, f"{selected_example_name}_comparison.png")
+    config.SAM_OUTPUT_PATH = os.path.join(config.OUTPUT_DIR, f"{selected_example_name}_sam_mask.png")
+
+    use_sam = False
+    while True:
+        logger.info("\nChoose a placement method:")
+        logger.info("1: Default Measurement (JSON)")
+        logger.info("2: AI-based Segmentation (SAM)")
+        choice = input("Enter your choice (1 or 2): ")
+
+        if choice == '1':
+            use_sam = False
+            break
+        elif choice == '2':
+            use_sam = True
+            break
+        else:
+            logger.warning("Invalid choice. Please enter 1 or 2.")
+
 
     while True:
         logger.info("\nChoose an approach:")
         logger.info("1: Logic (Geometric Blending) with Stability AI Refinement")
         logger.info("2: Logic only (Geometric Blending)")
-        choice = input("Enter your choice (1 or 2): ")
+        choice = input("Enter your choice (1-2): ")
 
         if choice == '1':
-            run_logic_approach()
+            run_logic_approach(use_sam=use_sam)
             break
         elif choice == '2':
-            run_logic_only_approach()
+            run_logic_only_approach(use_sam=use_sam)
             break
         else:
-            logger.warning("Invalid choice. Please enter 1 or 2.")
+            logger.warning("Invalid choice. Please enter 1-2.")
 
 if __name__ == "__main__":
     main()

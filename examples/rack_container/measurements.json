@@ -9,6 +9,7 @@
         "position": {
             "top_left": [196, 308],
             "bottom_right": [394, 408]
-        }
+        },
+        "prompt_point": [295, 358]
     }
 }

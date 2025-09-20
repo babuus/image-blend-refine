@@ -3,3 +3,10 @@ numpy
 stability-sdk
 python-dotenv
 Pillow
+torch
+torchvision
+segment-anything-py
+diffusers
+transformers
+accelerate
+controlnet-aux

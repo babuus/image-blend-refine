@@ -1,14 +1,15 @@
 {
     "overlay": {
-        "length": 150,
-        "height": 80
+        "length": 600,
+        "height": 1000
     },
     "base": {
-        "length": 150,
-        "height": 80,
+        "length": 1150,
+        "height": 2280,
         "position": {
             "top_left": [230, 174],
             "bottom_right": [375, 260]
-        }
+        },
+        "prompt_point": [302, 217]
     }
 }

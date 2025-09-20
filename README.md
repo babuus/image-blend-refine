@@ -21,6 +21,14 @@ This project provides a tool for blending an overlay image onto a base image usi
     pip install -r requirements.txt
     ```
 
+4.  **Download the SAM model:**
+    ```bash
+    mkdir -p models
+    cd models
+    wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+    cd ..
+    ```
+
 ## How to Run
 
 1.  **Set up the Stability AI API Key:**
@@ -36,9 +44,15 @@ This project provides a tool for blending an overlay image onto a base image usi
 
 3.  **Follow the prompts:**
     -   The script will first ask you to choose an example to run.
-    -   Then, it will ask you to choose an approach:
-        1.  **Logic (Geometric Blending) with Stability AI Refinement:** This will run the geometric blending and then refine the result using the Stability AI API. It will also generate a comparison image.
-        2.  **Logic only (Geometric Blending):** This will only run the geometric blending.
+    -   Then, it will ask you to choose a placement method:
+        1.  **Default Measurement (JSON):** Uses predefined coordinates from measurements.json
+        2.  **AI-based Segmentation (SAM):** Uses AI to automatically detect placement areas
+    -   Finally, choose an approach:
+        1.  **Logic (Geometric Blending) with Stability AI Refinement:** Geometric blending + AI refinement
+        2.  **Logic only (Geometric Blending):** Geometric blending only
+        3.  **ControlNet Depth Conditioning:** AI-based placement using depth understanding
+        4.  **ControlNet Inpainting:** AI-based seamless integration using inpainting
+        5.  **ControlNet Multi-Size Variations:** Generate multiple product sizes (42" vs 55" TV)
 
 ## Examples
 
