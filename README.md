@@ -6,8 +6,8 @@ This project provides a tool for blending an overlay image onto a base image usi
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/babuus/image-blend-refine.git
+    cd image-blend-refine
     ```
 
 2.  **Create a virtual environment:**
@@ -43,16 +43,15 @@ This project provides a tool for blending an overlay image onto a base image usi
     ```
 
 3.  **Follow the prompts:**
-    -   The script will first ask you to choose an example to run.
+    -   The script will first ask you to choose an example to run:
+        1.  **rack_container:** Rack container example
+        2.  **tv_wall:** TV wall example
     -   Then, it will ask you to choose a placement method:
         1.  **Default Measurement (JSON):** Uses predefined coordinates from measurements.json
         2.  **AI-based Segmentation (SAM):** Uses AI to automatically detect placement areas
     -   Finally, choose an approach:
         1.  **Logic (Geometric Blending) with Stability AI Refinement:** Geometric blending + AI refinement
         2.  **Logic only (Geometric Blending):** Geometric blending only
-        3.  **ControlNet Depth Conditioning:** AI-based placement using depth understanding
-        4.  **ControlNet Inpainting:** AI-based seamless integration using inpainting
-        5.  **ControlNet Multi-Size Variations:** Generate multiple product sizes (42" vs 55" TV)
 
 ## Examples
 
@@ -83,7 +82,8 @@ This project provides a tool for blending an overlay image onto a base image usi
 | <img src="examples/tv_wall/base_image.jpg" width="300"> | <img src="output/tv_wall_logic.png" width="300">       |
 | **Overlay Image**                   | **Stability Blended**                        |
 | <img src="examples/tv_wall/overlay_image.png" width="300"> | <img src="output/tv_wall_stability_blended.png" width="300"> |
-|                                     | **Comparison (logic and stability blended)**                               |
+|                                     | **Comparison (logic and stability blended)
+**                               |
 |                                     | <img src="output/tv_wall_comparison.png" width="300"> |
 
 </details>
