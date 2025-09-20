@@ -67,7 +67,7 @@ This project provides a tool for blending an overlay image onto a base image usi
 | <img src="examples/rack_container/base_image.jpg" width="300"> | <img src="output/rack_container_logic.png" width="300">   |
 | **Overlay Image**                       | **Stability Blended**                            |
 | <img src="examples/rack_container/overlay_image.png" width="300"> | <img src="output/rack_container_stability_blended.png" width="300"> |
-|                                         | **Comparison**                                   |
+|                                         | **Comparison (logic and stability blended)**                                   |
 |                                         | <img src="output/rack_container_comparison.png" width="300"> |
 
 </details>
@@ -83,7 +83,7 @@ This project provides a tool for blending an overlay image onto a base image usi
 | <img src="examples/tv_wall/base_image.jpg" width="300"> | <img src="output/tv_wall_logic.png" width="300">       |
 | **Overlay Image**                   | **Stability Blended**                        |
 | <img src="examples/tv_wall/overlay_image.png" width="300"> | <img src="output/tv_wall_stability_blended.png" width="300"> |
-|                                     | **Comparison**                               |
+|                                     | **Comparison (logic and stability blended)**                               |
 |                                     | <img src="output/tv_wall_comparison.png" width="300"> |
 
 </details>
